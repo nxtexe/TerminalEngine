@@ -41,14 +41,12 @@ int main() {
 	if (!app.Initialize())
 		return 0;
 
-	DWORD cNumRead;
-	static INPUT_RECORD ir[128];
 	HANDLE hStdin = GetStdHandle(STD_INPUT_HANDLE);
 	if (hStdin == nullptr)
 		return 0;
 	
-	std::shared_ptr<TerminalApp> ptr = std::make_shared<MainApp>(app);
-	std::thread events_thread(&MainApp::HandleEvents, std::ref(app), hStdin, ir, cNumRead);
+	std::thread events_thread(&MainApp::HandleEvents, &app, &hStdin);
+	events_thread.join();
 	return app.Run();
 }
 
