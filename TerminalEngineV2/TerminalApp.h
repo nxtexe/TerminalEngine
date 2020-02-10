@@ -37,8 +37,8 @@ class TerminalApp {
 		static const int mSwapChainCount = 2;
 		float AspectRatio() const;
 		void clear();
-		CONSOLE_SCREEN_BUFFER_INFO csbi;
+		CONSOLE_SCREEN_BUFFER_INFO csbi = {};
 		COORD char_coords = { 0, 0 };
-		wchar_t* char_texture = new wchar_t[mClientWidth * mClientHeight];//index i, j is found by [mClientWidth * i + j]
-		void HandleEvents(HANDLE* hStdin, INPUT_RECORD* irInBuff, DWORD& cNumRead);
+		wchar_t* char_texture = new wchar_t[(size_t)(mClientWidth * mClientHeight)];//index i, j is found by [mClientWidth * i + j]
+		void HandleEvents(HANDLE* hStdin);
 };

@@ -22,10 +22,11 @@ bool TerminalApp::InitMainWindow() {
 	GetWindowRect(wnd, &r);
 	SetConsoleActiveScreenBuffer(mhMainWnd);
 	MoveWindow(wnd, r.left, r.top, mClientWidth + 1000, mClientHeight + 1000, TRUE);
-	if (mhMainWnd)
+	if (mhMainWnd) {
 		return true;
-	else
-		false;
+	}
+
+	return false;
 }
 
 bool TerminalApp::Initialize() {
@@ -191,27 +192,29 @@ VOID ResizeEventProc(WINDOW_BUFFER_SIZE_RECORD wbsr, TerminalApp* theApp)
 	std::cout << "Width: " << theApp->mClientWidth << " Height: " << theApp->mClientHeight << std::endl;
 }
 
-void TerminalApp::HandleEvents(HANDLE* hStdin, INPUT_RECORD* irInBuff, DWORD& cNumRead) {
+void TerminalApp::HandleEvents(HANDLE* hStdin) {
+	static INPUT_RECORD ir[128];
+	DWORD cNumRead = 0;
 	while (true) {
 		//message loop
 		if (!ReadConsoleInput(
 				hStdin,
-				irInBuff,
+				ir,
 				128,
 				&cNumRead
 			)
 		)
 			return;
 		for (DWORD i = 0; i < cNumRead; i++) {
-			switch (irInBuff[i].EventType) {
+			switch (ir[i].EventType) {
 			case KEY_EVENT:
-				KeyEventProc(irInBuff[i].Event.KeyEvent, this);//a- 97, d - 100
+				KeyEventProc(ir[i].Event.KeyEvent, this);//a- 97, d - 100
 				break;
 			case MOUSE_EVENT:
-				MouseEventProc(irInBuff[i].Event.MouseEvent);
+				MouseEventProc(ir[i].Event.MouseEvent);
 				break;
 			case WINDOW_BUFFER_SIZE_EVENT://screen buffer resizing
-				ResizeEventProc(irInBuff[i].Event.WindowBufferSizeEvent, this);
+				ResizeEventProc(ir[i].Event.WindowBufferSizeEvent, this);
 				break;
 			case FOCUS_EVENT:
 			case MENU_EVENT:

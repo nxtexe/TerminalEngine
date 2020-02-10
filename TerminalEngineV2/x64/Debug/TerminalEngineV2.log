@@ -1,0 +1,3 @@
+﻿  main.cpp
+C:\dev\TerminalEngine\TerminalEngineV2\main.cpp(65): warning C4715: 'MainApp::Initialize': not all control paths return a value
+  TerminalEngineV2.vcxproj -> C:\dev\TerminalEngine\x64\Debug\TerminalEngineV2.exe
