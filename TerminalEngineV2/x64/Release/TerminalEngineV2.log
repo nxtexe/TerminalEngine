@@ -1,0 +1,21 @@
+﻿  main.cpp
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.24.28314\include\thread(43,14): error C2672: 'std::invoke': no matching overloaded function found
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.24.28314\include\thread(49): message : see reference to function template instantiation 'unsigned int std::thread::_Invoke<_Tuple,0,1,2,3,4>(void *) noexcept' being compiled
+          with
+          [
+              _Tuple=_Tuple
+          ]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.24.28314\include\thread(55): message : see reference to function template instantiation 'unsigned int (__cdecl *std::thread::_Get_invoke<_Tuple,0,1,2,3,4>(std::integer_sequence<unsigned __int64,0,1,2,3,4>) noexcept)(void *)' being compiled
+C:\Users\nayja\Desktop\C++\TerminalEngineV2\TerminalEngineV2\main.cpp(51): message : see reference to function template instantiation 'std::thread::thread<void(__cdecl TerminalApp::* )(HANDLE *,INPUT_RECORD *,DWORD &),std::reference_wrapper<MainApp>,HANDLE&,INPUT_RECORD(&)[128],DWORD&,void>(_Fn &&,std::reference_wrapper<MainApp> &&,HANDLE &,INPUT_RECORD (&)[128],DWORD &)' being compiled
+          with
+          [
+              _Fn=void (__cdecl TerminalApp::* )(HANDLE *,INPUT_RECORD *,DWORD &)
+          ]
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.24.28314\include\chrono(632): message : see reference to class template instantiation 'std::chrono::duration<double,std::ratio<1,1>>' being compiled
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.24.28314\include\chrono(178): message : see reference to class template instantiation 'std::chrono::duration<__int64,std::nano>' being compiled
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.24.28314\include\chrono(610): message : see reference to class template instantiation 'std::chrono::time_point<std::chrono::steady_clock,std::chrono::nanoseconds>' being compiled
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.24.28314\include\thread(39,5): error C2893: Failed to specialize function template 'unknown-type std::invoke(_Callable &&,_Types &&...) noexcept(<expr>)'
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.24.28314\include\type_traits(1579): message : see declaration of 'std::invoke'
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.24.28314\include\thread(39,5): message : With the following template arguments:
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.24.28314\include\thread(39,5): message : '_Callable=void (__cdecl TerminalApp::* )(HANDLE *,INPUT_RECORD *,DWORD &)'
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.24.28314\include\thread(39,5): message : '_Types={std::reference_wrapper<MainApp>, void *, INPUT_RECORD *, unsigned long}'
